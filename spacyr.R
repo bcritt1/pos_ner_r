@@ -17,7 +17,8 @@ library(spacyr)
 
 #use_python("/usr/local/bin/python3")
 spacy_initialize(model = "en_core_web_sm")
-
+library(Sys)
+user <- Sys.getenv("USER")
 input_loc <- "/home/users/bcritt/corpus/"
 files <- dir(input_loc, full.names = TRUE)
 text <- c()
@@ -26,5 +27,5 @@ for (f in files) {
 }
 
 parsedtxt <- spacy_parse(text)
-write.csv(parsedtxt, "/home/users/bcritt/Rpos_ner.csv")
+write.csv(parsedtxt, "/home/users/user/Rpos_ner.csv")
 
